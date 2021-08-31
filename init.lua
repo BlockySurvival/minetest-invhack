@@ -3,11 +3,15 @@ hacktool = {}
 -- Are the optional dependencies enabled?
 local xdecor_enabled = minetest.get_modpath("xdecor")
 local unified_inventory_enabled = minetest.get_modpath("unified_inventory")
+local mailbox_enabled = minetest.get_modpath("mailbox")
 
 -- Build a list of inventories depening on the mods enabled
 local inventories = {{ label = "Main", name = "main" }}
 if xdecor_enabled then
 	table.insert(inventories, { label = "Ender", name = "enderchest" })
+end
+if mailbox_enabled then
+	table.insert(inventories, { label = "Mail", name = "mailbox" })
 end
 if unified_inventory_enabled then
 	for bag_i = 1, 4 do
